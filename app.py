@@ -7,7 +7,7 @@ st.set_page_config(layout="wide")
 st.title("📈 Visualizzatore di segnali accelerometrici")
 
 # Upload CSV
-uploaded_file = st.file_uploader("Trascina qui il file CSV (fino a 1 GB)", type="csv")
+uploaded_file = st.file_uploader("Trascina qui il file CSV", type="csv")
 
 if uploaded_file:
     # Dimensione del file
@@ -47,4 +47,5 @@ if uploaded_file:
         st.subheader("📊 Grafico interattivo")
         fig = px.line(df, x=timestamp_col, y=selected_signals, title="Segnali accelerometrici")
         fig.update_layout(xaxis_tickangle=-45)
+
         st.plotly_chart(fig, use_container_width=True)
